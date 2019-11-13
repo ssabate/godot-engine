@@ -18,6 +18,7 @@ func game_over():
 	$DeathSound.play()
 	$ScoreTimer.stop()
 	$MobTimer.stop() 
+	$Player.hide()		#Amagem el jugador per a que no aparegue abans d'iniciar la següent partida
 	$HUD.show_game_over()
 
 func new_game():
@@ -26,7 +27,7 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")
+	$HUD.show_message("Prepara't")
 
 func _on_MobTimer_timeout():
 	# Choose a random location on Path2D.
@@ -53,3 +54,5 @@ func _on_ScoreTimer_timeout():
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
+	$Player.show()	#Mostrem el jugador una vegada ha finalitzat l'espera inicial
+	$HUD/ScoreLabel.show()

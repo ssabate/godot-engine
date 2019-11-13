@@ -16,13 +16,14 @@ func show_message(text):
 	$MessageTimer.start()
 	
 func show_game_over():
-	show_message("Game Over")
+	show_message("Fi del joc")
 	yield($MessageTimer, "timeout")
-	$MessageLabel.text = "Dodge the\nCreeps!"
-	$MessageLabel.show()
+	$ScoreLabel.hide()
 	yield(get_tree().create_timer(1), 'timeout')
+	$MessageLabel.text = "Esquiva els\nbacteris!"
+	$MessageLabel.show()
 	$StartButton.show()
-	
+		
 func update_score(score):
 	$ScoreLabel.text = str(score)
 

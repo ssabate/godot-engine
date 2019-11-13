@@ -10,6 +10,9 @@ var screen_size
 func _ready():
 	screen_size = get_viewport_rect().size # Getting the size of the window.
 
+func _init():
+	hide()	#inicialment el jugador no es mostra
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2()  # The player's movement vector.
@@ -48,5 +51,4 @@ func _on_Player_body_entered(body):
 	
 func start(pos):
 	position = pos
-	show()
 	$CollisionShape2D.disabled = false
